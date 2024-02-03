@@ -45,7 +45,7 @@ jobs:
         id: fmt
         run: terraform fmt -check
 
-      - name: Terraform 
+      - name: terraform 
         id: validate
         run: terraform validate
 
@@ -61,7 +61,7 @@ jobs:
       - name: Terraform apply
         id: apple
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terrafrom apply -auto-approve -input=false -parallelism=1 planfile
+        run: terraform apply -auto-approve -input=false -parallelism=1 planfile
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
